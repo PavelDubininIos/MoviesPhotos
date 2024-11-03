@@ -29,20 +29,42 @@
 		ED23E72D2CD7FF7D00AC7891 /* PhotosMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ED9D57232CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMovies" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests/PhotosMoviesTests/PhotosMoviesTests.swift,
+				Tests/PhotosMoviesUITests/PhotosMoviesUITests.swift,
+				Tests/PhotosMoviesUITests/PhotosMoviesUITestsLaunchTests.swift,
+			);
+			target = ED23E7122CD7FF7A00AC7891 /* PhotosMovies */;
+		};
+		ED9D57242CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMoviesTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests/PhotosMoviesTests/PhotosMoviesTests.swift,
+			);
+			target = ED23E7222CD7FF7D00AC7891 /* PhotosMoviesTests */;
+		};
+		ED9D57252CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMoviesUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests/PhotosMoviesUITests/PhotosMoviesUITests.swift,
+				Tests/PhotosMoviesUITests/PhotosMoviesUITestsLaunchTests.swift,
+			);
+			target = ED23E72C2CD7FF7D00AC7891 /* PhotosMoviesUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ED23E7152CD7FF7A00AC7891 /* PhotosMovies */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ED9D57232CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMovies" target */,
+				ED9D57242CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMoviesTests" target */,
+				ED9D57252CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMoviesUITests" target */,
+			);
 			path = PhotosMovies;
-			sourceTree = "<group>";
-		};
-		ED23E7262CD7FF7D00AC7891 /* PhotosMoviesTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PhotosMoviesTests;
-			sourceTree = "<group>";
-		};
-		ED23E7302CD7FF7D00AC7891 /* PhotosMoviesUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PhotosMoviesUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				ED23E7152CD7FF7A00AC7891 /* PhotosMovies */,
-				ED23E7262CD7FF7D00AC7891 /* PhotosMoviesTests */,
-				ED23E7302CD7FF7D00AC7891 /* PhotosMoviesUITests */,
 				ED23E7142CD7FF7A00AC7891 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +150,6 @@
 			dependencies = (
 				ED23E7252CD7FF7D00AC7891 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				ED23E7262CD7FF7D00AC7891 /* PhotosMoviesTests */,
-			);
 			name = PhotosMoviesTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +169,6 @@
 			);
 			dependencies = (
 				ED23E72F2CD7FF7D00AC7891 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				ED23E7302CD7FF7D00AC7891 /* PhotosMoviesUITests */,
 			);
 			name = PhotosMoviesUITests;
 			packageProductDependencies = (
