@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  PhotosMovies
-//
-//  Created by Павел Дубинин on 03.11.2024.
-//
-
 import SwiftUI
 
 struct MainScreen: View {

@@ -33,6 +33,7 @@
 		ED9D57232CD8076C00F1E834 /* Exceptions for "PhotosMovies" folder in "PhotosMovies" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				Tests/PhotosMoviesTests/PhotosMoviesTests.swift,
 				Tests/PhotosMoviesUITests/PhotosMoviesUITests.swift,
 				Tests/PhotosMoviesUITests/PhotosMoviesUITestsLaunchTests.swift,
@@ -413,6 +414,7 @@
 				DEVELOPMENT_TEAM = M92NK435W6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotosMovies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -442,6 +444,7 @@
 				DEVELOPMENT_TEAM = M92NK435W6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotosMovies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
