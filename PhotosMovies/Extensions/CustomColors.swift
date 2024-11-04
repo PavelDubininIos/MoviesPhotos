@@ -1,13 +1,8 @@
 import SwiftUI
 
-// MARK: - Name Colors
-enum CustomColors: String {
-    case searchBarBackground = "searchBarBackground"
-}
-
-// MARK: - Initial
-extension Color {
-    init(_ name: CustomColors) {
-        self.init(name.rawValue)
+// MARK: - Extension Colors
+extension SwiftUI.Color {
+    static var searchBarBackground: SwiftUI.Color {
+        SwiftUI.Color("searchBarBackground") // Assuming you have this color defined in your asset catalog
     }
 }
