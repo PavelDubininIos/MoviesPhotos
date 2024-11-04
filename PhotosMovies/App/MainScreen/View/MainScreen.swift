@@ -4,6 +4,10 @@ import SwiftUI
 
 
 struct MainScreen: View {
+    
+    let dataManager = DefaultAPIClient()
+    let getPhotoRequest = GetPhotoRequest()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -11,7 +15,11 @@ struct MainScreen: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
         }
-        .padding()
+        .onAppear {
+            Task {
+                let _: PhotoUnsplash = try await dataManager.sendRequest(endpoint: getPhotoRequest)
+            }
+        }
     }
 }
 
