@@ -17,10 +17,11 @@ struct GetPhotoRequest: APIRequest {
         .GET
     }
     var headers: [String : String]? {
-        ["Bearer": StaticValues.apiToken,
+        ["Authorization": StaticValues.apiToken,
         "Accept-Version": "v1"]
     }
     var body: Data? {
         nil
     }
+
 }

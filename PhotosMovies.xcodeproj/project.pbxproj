@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		49393F3D2CDA1CB100B606E8 /* NetworkManagerAsycn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49393F3C2CDA1CB100B606E8 /* NetworkManagerAsycn.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		ED23E7242CD7FF7D00AC7891 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49393F3C2CDA1CB100B606E8 /* NetworkManagerAsycn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAsycn.swift; sourceTree = "<group>"; };
 		ED23E7132CD7FF7A00AC7891 /* PhotosMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED23E7232CD7FF7D00AC7891 /* PhotosMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED23E72D2CD7FF7D00AC7891 /* PhotosMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +103,7 @@
 		ED23E70A2CD7FF7A00AC7891 = {
 			isa = PBXGroup;
 			children = (
+				49393F3C2CDA1CB100B606E8 /* NetworkManagerAsycn.swift */,
 				ED23E7152CD7FF7A00AC7891 /* PhotosMovies */,
 				ED23E7142CD7FF7A00AC7891 /* Products */,
 			);
@@ -251,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49393F3D2CDA1CB100B606E8 /* NetworkManagerAsycn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
