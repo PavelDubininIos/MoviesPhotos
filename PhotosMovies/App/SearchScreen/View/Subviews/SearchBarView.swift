@@ -2,9 +2,15 @@ import SwiftUI
 
 struct SearchBarView: View {
     @State private var text: String
+    let topPadding: CGFloat?
+    let horizontalPadding: CGFloat?
     
-    init(text: String = "") {
+    init(text: String = "",
+         topPadding: CGFloat? = nil,
+         horizontalPadding: CGFloat? = nil) {
         self.text = text
+        self.topPadding = topPadding
+        self.horizontalPadding = horizontalPadding
     }
     
     var body: some View {
@@ -18,6 +24,8 @@ struct SearchBarView: View {
             Color.searchBarBackground,
             in: RoundedRectangle(cornerRadius: 16)
         )
+        .padding(.top, topPadding)
+        .padding(.horizontal, horizontalPadding)
     }
 }
 
@@ -31,15 +39,17 @@ extension SearchBarView {
         )
             .font(
                 Font.custom(
-                    .poppins,
+                    .poppinsLight,
                     size: 14
             )
         )
             .autocorrectionDisabled()
+            .tint(.white)
     }
     
     private var prompt: Text {
         Text("Search")
+            .foregroundStyle(.white)
     }
 }
 

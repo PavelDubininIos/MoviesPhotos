@@ -2,7 +2,8 @@ import SwiftUI
 
 // MARK: - Name Fonts
 enum CustomFonts: String {
-    case poppins = "Poppins-Light"
+    case poppinsLight = "Poppins-Light"
+    case poppinsBold = "Poppins-Bold"
 }
 
 // MARK: - Initial

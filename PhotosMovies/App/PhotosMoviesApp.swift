@@ -6,7 +6,7 @@ struct PhotosMoviesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            TabScreen()
                 .preferredColorScheme(.dark)
         }
     }
