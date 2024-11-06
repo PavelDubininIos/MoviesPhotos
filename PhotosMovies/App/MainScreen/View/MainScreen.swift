@@ -1,50 +1,42 @@
-import SwiftUI
-
-class MainScreenViewModel: ObservableObject {
-    @Published var update: Bool = false
-    
-    
-    func reloadData() {
-        if update { return }
-        
-        update = true
-        
-        Task {
-            
-            do {
-                let dataManager = DefaultAPIClient()
-                
-                let data: [UnsplashPhotoUrls] = try await dataManager.sendRequest(endpoint: GetPhotoRequest())
-                
-                DispatchQueue.main.async {
-                    print(data)
-                    self.update = false
-                }
-                
-                
-            } catch {
-                print(error)
-            }
-            
-        }
-    }
-}
-
 
 
 struct MainScreen: View {
-    @StateObject var viewModel: MainScreenViewModel = .init()
+    
+    @StateObject
+    var viewModel: MainScreenViewModel = MainScreenViewModel()
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(red: 36/255, green: 42/255, blue: 50/255, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+    }
     
     var body: some View {
-       
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text(viewModel.update ? "Updated" : "Hello, world!")
+
+        TabView {
+
+            SearchBarView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            
+            Text("Search")
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Search")
+                }
+            
+            Text("Watch list")
+                .tabItem {
+                    Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
+                    Text("Watch list")
+                }
         }
+
         .onAppear {
-            viewModel.reloadData()
+            
+            viewModel.getURL()
+
         }
     }
 }

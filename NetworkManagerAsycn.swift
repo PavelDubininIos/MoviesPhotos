@@ -37,7 +37,6 @@ class NetworkManagerAsyncImpl: NetworkManagerAsync {
         
         var request = URLRequest(url: url)
        
-        
         //header
         
         //body
