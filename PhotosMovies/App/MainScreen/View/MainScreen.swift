@@ -16,6 +16,7 @@ struct MainScreen: View {
                 SearchBarView(topPadding: 20, horizontalPadding: 20)
                 topImage
                 horizontalMovieSelector
+                galleryPhotos
                 Spacer()
             }
         }
@@ -118,6 +119,13 @@ extension MainScreen {
         .padding(.top, 35)
         .padding(.all, 10)
         
+    }
+}
+
+extension MainScreen {
+    
+    var galleryPhotos: some View {
+        Text("1213")
     }
 }
 

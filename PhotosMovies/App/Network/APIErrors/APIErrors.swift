@@ -6,4 +6,5 @@ enum APIError: Error {
     case invalidResponse
     case decodingError(Error)
     case unexpectedStatusCode(Int)
+    case networkError(Error)
 }
