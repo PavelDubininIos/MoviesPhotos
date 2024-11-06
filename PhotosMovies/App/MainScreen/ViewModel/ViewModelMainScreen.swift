@@ -11,30 +11,39 @@ import SwiftUI
 class MainScreenViewModel: ObservableObject {
     
     @Published var urlArray: [UnsplashPhotoUrls]  = []
+    @Published var exam = 0
     
-    private var actor = ActorURL()
-
+    private let actor = ActorURL()
+    
+    @MainActor
+    func testFunc() async -> Int  {
+        await exam = actor.testFunc()
+        return exam
+    }
+        
 }
 
-extension MainScreenViewModel {
+actor ActorURL {
     
-    actor ActorURL {
+    private(set) var urlData: [UnsplashPhotoUrls] = []
+    
+    var testValue = 0
+    
+    func testFunc() async -> Int {
+        testValue = 1
+        return testValue
+    }
+    
+    func getURL() async {
         
-        private(set) var urlData: [UnsplashPhotoUrls] = []
-        
-        func getURL() async -> [UnsplashPhotoUrls] {
-            
-            do {
-                let dataManager = DefaultAPIClient()
-                
-                urlData = try await dataManager.sendRequest(endpoint: GetPhotoRequest())
-                
-                await print(urlData)
-                
-            } catch {
-                print(error)
-            }
+        do {
+            let dataManager = DefaultAPIClient()
+            urlData = try await dataManager.sendRequest(endpoint: GetPhotoRequest())
+            //                urlData = try await dataManager.sendRequest(endpoint: GetPhotoRequest())
+            await print(urlData)
+        } catch {
+            print(error)
         }
     }
-
 }
+

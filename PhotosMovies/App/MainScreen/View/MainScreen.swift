@@ -1,9 +1,11 @@
-
+import SwiftUI
 
 struct MainScreen: View {
     
     @StateObject
     var viewModel: MainScreenViewModel = MainScreenViewModel()
+    
+    @State var some = 0
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(red: 36/255, green: 42/255, blue: 50/255, alpha: 1)
@@ -31,11 +33,15 @@ struct MainScreen: View {
                     Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     Text("Watch list")
                 }
+            
+            Text("\(some)")
+                .foregroundStyle(.white)
         }
 
         .onAppear {
-            
-            viewModel.getURL()
+            Task {
+                self.some = await viewModel.testFunc()
+            }
 
         }
     }
