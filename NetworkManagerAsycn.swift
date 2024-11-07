@@ -20,18 +20,19 @@ class NetworkManagerAsyncImpl: NetworkManagerAsync {
                    body: Data?) async throws -> Data
     {
         
+        
         // params
-        var stringURL = urlString.replacingOccurrences(of: "?", with: "")
-        
-        let params = param
-            .map({ $0 + "=" + $1} )
-            .joined(separator: "&")
-        
-        stringURL += "?" + params
+        guard var components = URLComponents(string: urlString) else {
+            throw APIError.invalidURL
+        }
         
         
-        //urps
-        guard let url = URL(string: stringURL) else {
+        if !param.isEmpty {
+            components.queryItems = param.map({ .init(name: $0, value: $1)})
+        }
+        
+        //urls
+        guard let url = components.url else {
             throw APIError.invalidURL
         }
         

@@ -1,8 +1,13 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @StateObject var viewModel = MainScreenViewModel()
+    
     @State private var selectedTab = 0
-
+    
+    private var width: CGFloat = (UIScreen.main.bounds.width - 20) / CGFloat(3)
+    private let gridItem: [GridItem] = .init(repeating: GridItem(.flexible(), spacing: 0), count: 3)
+    
     var offsetLeading: CGFloat = 160
     let tabs = ["Now playing", "Upcoming", "Top rated", "Popular"]
     
@@ -18,6 +23,23 @@ struct MainScreen: View {
                 horizontalMovieSelector
                 galleryPhotos
                 Spacer()
+                
+                ScrollView {
+                    
+                    LazyVGrid(columns: gridItem, spacing: 10) {
+                        ForEach(viewModel.imageURLs, id: \.self) { imageURL in
+                            AsyncImage(url: imageURL) { image in
+                                image.image?
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: width)
+                                    .clipped()
+                                    .border(Color.red, width: 2)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                }
             }
         }
     }
@@ -37,37 +59,37 @@ extension MainScreen {
 }
 
 extension MainScreen {
-
+    
     var topImage: some View {
         ScrollView(.horizontal){
             HStack {
-
-                    Image("testImage")
-                        .resizable()
-                        .frame(width: 145, height: 210)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .padding(.leading, 24)
-                        .overlay {
-                            Image("Image1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40, height: 75)
-                                .padding(.init(top: 185, leading: 50, bottom: 0, trailing: offsetLeading))
-                        }
-                    
-                    Image("testImage")
-                        .resizable()
-                        .frame(width: 145, height: 210)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .padding(.leading, 30)
-                    
-                        .overlay {
-                            Image("Image2")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 55, height: 75)
-                                .padding(.init(top: 185, leading: 40, bottom: 0, trailing: offsetLeading))
-                        }
+                
+                Image("testImage")
+                    .resizable()
+                    .frame(width: 145, height: 210)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .padding(.leading, 24)
+                    .overlay {
+                        Image("Image1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 75)
+                            .padding(.init(top: 185, leading: 50, bottom: 0, trailing: offsetLeading))
+                    }
+                
+                Image("testImage")
+                    .resizable()
+                    .frame(width: 145, height: 210)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .padding(.leading, 30)
+                
+                    .overlay {
+                        Image("Image2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 55, height: 75)
+                            .padding(.init(top: 185, leading: 40, bottom: 0, trailing: offsetLeading))
+                    }
                 
                 ZStack {
                     
@@ -75,7 +97,7 @@ extension MainScreen {
                         .resizable()
                         .frame(width: 145, height: 210)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
-//                        .padding(.trailing, 24)
+                    //                        .padding(.trailing, 24)
                     
                     Image("Image2")
                         .resizable()

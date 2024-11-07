@@ -11,13 +11,29 @@ import SwiftUI
 class MainScreenViewModel: ObservableObject {
     
     @Published var urlArray: [UnsplashPhotoUrls]  = []
+    @Published var imageURLs: [URL]  = []
+     var imageURL: URL?
+    
     private let actor = ActorURL()
+    
+    init() {
+        Task {
+            await arrayURLs()
+        }
+    }
     
     @MainActor
     func arrayURLs() async {
         urlArray = []
         do {
             urlArray = try await actor.getURL()
+            imageURLs = urlArray.compactMap({
+                guard let value = $0.urls?.regular, let url = URL(string: value) else { return nil }
+                return url
+            })
+            
+            guard  let value = urlArray.first?.urls?.regular, let url = URL(string: value) else { return }
+            imageURL = url
         } catch {
             // ignoring errors
         }
@@ -26,6 +42,7 @@ class MainScreenViewModel: ObservableObject {
 
 actor ActorURL {
     func getURL() async throws -> [UnsplashPhotoUrls] {
+        
         do {
             let dataManager = DefaultAPIClient()
             let urlData: [UnsplashPhotoUrls] = try await dataManager.sendRequest(endpoint: GetPhotoRequest())
