@@ -21,7 +21,6 @@ struct MainScreen: View {
                 SearchBarView(topPadding: 20, horizontalPadding: 20)
                 topImage
                 horizontalMovieSelector
-                galleryPhotos
                 Spacer()
                 
                 ScrollView {
@@ -38,7 +37,7 @@ struct MainScreen: View {
                             }
                         }
                     }
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 2)
                 }
             }
         }
@@ -143,14 +142,6 @@ extension MainScreen {
         
     }
 }
-
-extension MainScreen {
-    
-    var galleryPhotos: some View {
-        Text("1213")
-    }
-}
-
 
 #Preview {
     MainScreen()
